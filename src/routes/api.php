@@ -1,10 +1,9 @@
 <?php
 
 use Illuminate\Http\Request;
-// use App\Http\Controllers\Api\MeController;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Auth\LoginController;
-// use App\Http\Controllers\Auth\LogoutController;
+// use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\front\HomeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,12 +16,9 @@ use App\Http\Controllers\Auth\LoginController;
 |
 */
 
-// Route::group(['middleware' => ['auth:sanctum']], function () {
-//     Route::get('/me', MeController::class);
-// });
-Route::post('/login', [LoginController::class, 'login'])->name('login');
-// Route::post('/logout', LogoutController::class)->name('logout');
-
+// Route::post('/login', [LoginController::class, 'login'])->name('login');
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+Route::get('/posts/recommended', [HomeController::class, 'getRecommendPosts']);

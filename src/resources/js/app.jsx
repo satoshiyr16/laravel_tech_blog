@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { createRoot } from 'react-dom/client';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import HomePage from './components/HomePage';
+import HomePage from './components/front/HomePage';
 import LoginForm from './components/LoginPage';
 
 function App() {
