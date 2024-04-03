@@ -4,9 +4,17 @@ import WaveEffect from '@components/front/effects/WaveEffect';
 import '@css/front/HomePage.css';
 
 function HomePage() {
+  const apiUrl = import.meta.env.VITE_API_URL;
+  const imageDir = import.meta.env.VITE_FRONT_IMAGE_DIR;
+  const [posts, setPosts] = useState([]);
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
+    fetch(`${apiUrl}/posts/recommended`)
+      .then(response => response.json())
+      .then(data => setPosts(data))
+      .catch(error => console.error('Error fetching recommended posts:', error));
+
     setIsVisible(true);
   }, []);
 
@@ -26,15 +34,11 @@ function HomePage() {
         <WaveEffect />
         <div className="l-title_area">
           <h2 className={`title ${isVisible ? '-visible' : ''}`}>
-            <span>T</span>
-            <span>E</span>
-            <span>C</span>
-            <span>H</span>
-            <span>&nbsp;</span>
-            <span>B</span>
-            <span>L</span>
-            <span>O</span>
-            <span>G</span>
+            <span>雑</span>
+            <span>魚</span>
+            <span>の</span>
+            <span>産</span>
+            <span>声</span>
           </h2>
         </div>
         <div className="l-nav_area">
@@ -51,6 +55,28 @@ function HomePage() {
               ))}
             </ul>
           </nav>
+        </div>
+        <div className="l-enhancement_section">
+          <div className="l-recommend_post_area">
+            {posts.map((rec_post) => (
+              <div className="rec_post_content fadeIn">
+                <a href="#"></a>
+                {rec_post.heading_image === null ? (
+                  <img className="rec_img" src={`${imageDir}/post.sample.1.png`} alt={rec_post.title} />
+                ) : (
+                  <img className="rec_img" src={rec_post.heading_image} alt={rec_post.title} />
+                )}
+                <h2 className="rec_title">{rec_post.title}</h2>
+              </div>
+            ))}
+          </div>
+          <div className="l-menu_area">
+            <div className="l-search_area"></div>
+            <img className="banner_img shaking animation" src={`${imageDir}/zakoubu_home_icatch.png`} alt="サンプル"/>
+          </div>
+        </div>
+        <div className="l-message_area">
+          <p className="TextTyping">WEBエンジニアの未経験・ジュニアレベルに役立つ情報を提供</p>
         </div>
       </div>
     </BaseLayout>
