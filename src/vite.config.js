@@ -7,7 +7,7 @@ export default defineConfig({
     plugins: [
         laravel({
             input: [
-                'resources/css/app.css',
+                'resources/scss/app.scss',
                 'resources/js/app.jsx'
             ],
             refresh: true,
@@ -23,7 +23,7 @@ export default defineConfig({
     },
     resolve: {
         alias: {
-            '@css': path.resolve(__dirname, 'resources/css'),
+            '@scss': path.resolve(__dirname, 'resources/scss'),
             '@components': path.resolve(__dirname, 'resources/js/components')
         }
     }

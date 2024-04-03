@@ -1,0 +1,30 @@
+#waveCanvas {
+  display: block;
+  width: 100%;
+  height: 20vh;
+  margin: 0 auto;
+}
+
+.fadeIn {
+  animation: fadeInAnime 1.5s forwards;
+  opacity: 0;
+
+  @keyframes fadeInAnime {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+}
+
+.ShakeAnimation{
+  animation: shakingAnime 1.5s ease-in-out infinite alternate;
+}
+
+.shaking {
+  transform: rotate(2deg);
+  animation: shakingAnime 5s infinite alternate;
+
+  @keyframes shakingAnime {
+    50% { transform: rotate(-2deg); }
+    100% { transform: rotate(2deg); }
+  }
+}

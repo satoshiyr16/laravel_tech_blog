@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import '@css/front/effects/WaveEffect.css';
+import '@scss/Animation.scss';
 
 const WaveComponent = () => {
   useEffect(() => {

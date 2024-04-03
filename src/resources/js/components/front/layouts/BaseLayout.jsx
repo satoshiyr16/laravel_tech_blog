@@ -1,7 +1,7 @@
 import React from 'react';
-import '@css/Reset.css';
+import '@scss/Reset.scss';
 import ParticlesBackground from '@components/front/effects/ParticleBackground';
-import '@css/Animation.css';
+import '@scss/Animation.scss';
 
 const BaseLayout = ({ children }) => {
   return (
