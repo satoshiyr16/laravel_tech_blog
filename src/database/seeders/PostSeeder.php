@@ -13,16 +13,14 @@ class PostSeeder extends Seeder
      */
     public function run(): void
     {
-        $date = now();
-
         DB::table('posts')->insert([
             'title' => 'おすすめ投稿 1',
             'content' => 'これはおすすめの投稿内容です。1',
             'heading_image' => null,
             'recommend_flg' => 1,
             'deleted' => 0,
-            'created_at' => $date->copy()->addMinutes(1),
-            'updated_at' => $date->copy()->addMinutes(1),
+            'created_at' => now(),
+            'updated_at' => now(),
         ]);
 
         DB::table('posts')->insert([
@@ -31,8 +29,8 @@ class PostSeeder extends Seeder
             'heading_image' => null,
             'recommend_flg' => 1,
             'deleted' => 0,
-            'created_at' => $date->copy()->addMinutes(2),
-            'updated_at' => $date->copy()->addMinutes(2),
+            'created_at' => now(),
+            'updated_at' => now(),
         ]);
 
         DB::table('posts')->insert([
@@ -41,8 +39,8 @@ class PostSeeder extends Seeder
             'heading_image' => null,
             'recommend_flg' => 1,
             'deleted' => 0,
-            'created_at' => $date->copy()->addMinutes(3),
-            'updated_at' => $date->copy()->addMinutes(3),
+            'created_at' => now(),
+            'updated_at' => now(),
         ]);
 
         DB::table('posts')->insert([
@@ -51,8 +49,8 @@ class PostSeeder extends Seeder
             'heading_image' => null,
             'recommend_flg' => 1,
             'deleted' => 0,
-            'created_at' => $date->copy()->addMinutes(3),
-            'updated_at' => $date->copy()->addMinutes(3),
+            'created_at' => now(),
+            'updated_at' => now(),
         ]);
 
         DB::table('posts')->insert([
@@ -61,8 +59,8 @@ class PostSeeder extends Seeder
             'heading_image' => null,
             'recommend_flg' => 0,
             'deleted' => 0,
-            'created_at' => $date->copy()->addMinutes(1),
-            'updated_at' => $date->copy()->addMinutes(1),
+            'created_at' => now(),
+            'updated_at' => now(),
         ]);
 
         DB::table('posts')->insert([
@@ -71,8 +69,8 @@ class PostSeeder extends Seeder
             'heading_image' => null,
             'recommend_flg' => 0,
             'deleted' => 0,
-            'created_at' => $date->copy()->addMinutes(1),
-            'updated_at' => $date->copy()->addMinutes(1),
+            'created_at' => now(),
+            'updated_at' => now(),
         ]);
 
         DB::table('posts')->insert([
@@ -81,8 +79,8 @@ class PostSeeder extends Seeder
             'heading_image' => null,
             'recommend_flg' => 0,
             'deleted' => 0,
-            'created_at' => $date->copy()->addMinutes(1),
-            'updated_at' => $date->copy()->addMinutes(1),
+            'created_at' => now(),
+            'updated_at' => now(),
         ]);
 
         DB::table('posts')->insert([
@@ -91,8 +89,8 @@ class PostSeeder extends Seeder
             'heading_image' => null,
             'recommend_flg' => 0,
             'deleted' => 0,
-            'created_at' => $date->copy()->addMinutes(1),
-            'updated_at' => $date->copy()->addMinutes(1),
+            'created_at' => now(),
+            'updated_at' => now(),
         ]);
 
         DB::table('posts')->insert([
@@ -101,8 +99,8 @@ class PostSeeder extends Seeder
             'heading_image' => null,
             'recommend_flg' => 0,
             'deleted' => 0,
-            'created_at' => $date->copy()->addMinutes(1),
-            'updated_at' => $date->copy()->addMinutes(1),
+            'created_at' => now(),
+            'updated_at' => now(),
         ]);
 
         DB::table('posts')->insert([
@@ -111,8 +109,8 @@ class PostSeeder extends Seeder
             'heading_image' => null,
             'recommend_flg' => 0,
             'deleted' => 0,
-            'created_at' => $date->copy()->addMinutes(1),
-            'updated_at' => $date->copy()->addMinutes(1),
+            'created_at' => now(),
+            'updated_at' => now(),
         ]);
 
         DB::table('posts')->insert([
@@ -121,8 +119,8 @@ class PostSeeder extends Seeder
             'heading_image' => null,
             'recommend_flg' => 0,
             'deleted' => 0,
-            'created_at' => $date->copy()->addMinutes(1),
-            'updated_at' => $date->copy()->addMinutes(1),
+            'created_at' => now(),
+            'updated_at' => now(),
         ]);
 
         DB::table('posts')->insert([
@@ -130,8 +128,8 @@ class PostSeeder extends Seeder
             'content' => 'これはサンプルの投稿内容です。8',
             'recommend_flg' => 0,
             'deleted' => 0,
-            'created_at' => $date->copy()->addMinutes(1),
-            'updated_at' => $date->copy()->addMinutes(1),
+            'created_at' => now(),
+            'updated_at' => now(),
         ]);
 
         DB::table('posts')->insert([
@@ -140,8 +138,8 @@ class PostSeeder extends Seeder
             'heading_image' => null,
             'recommend_flg' => 0,
             'deleted' => 1,
-            'created_at' => $date->copy()->addMinutes(1),
-            'updated_at' => $date->copy()->addMinutes(1),
+            'created_at' => now(),
+            'updated_at' => now(),
         ]);
 
         DB::table('posts')->insert([
@@ -150,8 +148,8 @@ class PostSeeder extends Seeder
             'heading_image' => null,
             'recommend_flg' => 0,
             'deleted' => 1,
-            'created_at' => $date->copy()->addMinutes(1),
-            'updated_at' => $date->copy()->addMinutes(1),
+            'created_at' => now(),
+            'updated_at' => now(),
         ]);
     }
 }

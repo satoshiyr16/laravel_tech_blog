@@ -1,35 +1,39 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
+import { useAuth } from '@components/admin/auth/AuthContext';
 
 function LoginForm() {
-    const [email, setEmail] = useState('admin@example.com'); // テスト用のユーザー情報
-    const [password, setPassword] = useState('password1234'); // テスト用のパスワード
+    const [email, setEmail] = useState('admin@example.com');
+    const [password, setPassword] = useState('password1234');
     const [errorMessage, setErrorMessage] = useState('');
+    const navigate = useNavigate();
+    const { setUser } = useAuth();
+    const url = import.meta.env.VITE_URL;
+    const apiUrl = import.meta.env.VITE_API_URL;
 
     const handleSubmit = async (event) => {
         event.preventDefault();
-        setErrorMessage(''); // エラーメッセージをリセット
+        setErrorMessage('');
 
-        // CSRFトークンを取得
-        await axios.get('http://localhost/sanctum/csrf-cookie', { withCredentials: true });
+        await axios.get(`${url}/sanctum/csrf-cookie`, { withCredentials: true });
 
-        // ログインリクエストを送信
         try {
-            const response = await axios.post('http://localhost/api/login', {
+            const response = await axios.post(`${apiUrl}/login`, {
                 email,
                 password
             }, {
                 headers: {
                     'Content-Type': 'application/json'
                 },
-                withCredentials: true // CSRF保護とセッションを使用するために必要
+                withCredentials: true
             });
 
-            console.log('Login success:', response.data);
-            // ログイン成功後の処理をここに追加
+            console.log('Login success:', response.data.user);
+            setUser(response.data.user);
+            navigate('/admin/home');
         } catch (error) {
             if (error.response) {
-                // サーバーからのレスポンスがある場合、エラーメッセージを表示
                 setErrorMessage(error.response.data.message);
             } else {
                 setErrorMessage('Login failed.');

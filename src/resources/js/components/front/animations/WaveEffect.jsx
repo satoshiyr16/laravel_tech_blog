@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
-import '@css/front/effects/WaveEffect.css';
+import '@scss/Animation.scss';
 
-const WaveComponent = () => {
+const WaveEffect = () => {
   useEffect(() => {
     var unit = 100,
       canvas,
@@ -70,4 +70,4 @@ const WaveComponent = () => {
   return <canvas id="waveCanvas"></canvas>;
 };
 
-export default WaveComponent;
+export default WaveEffect;
