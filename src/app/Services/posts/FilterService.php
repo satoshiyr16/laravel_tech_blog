@@ -9,4 +9,14 @@ class FilterService
     {
       return Post::isRecommend()->get();
     }
+
+    public function getLimit10NewPosts()
+    {
+      return Post::newPosts(10)->get();
+    }
+
+    public function getPostsByTag()
+    {
+      return Post::PostsByTag()->get();
+    }
 }

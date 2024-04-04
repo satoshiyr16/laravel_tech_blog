@@ -15,11 +15,31 @@ class HomeController extends Controller
         $this->filPosService = $filPosService;
     }
 
-    public function getRecommendPosts()
+    public function index()
     {
         $recPosts = $this->filPosService->getRecommendPosts();
+        $newPosts = $this->filPosService->getLimit10NewPosts();
+        $tagPosts = $this->filPosService->getPostsByTag();
 
-        return response()->json($recPosts);
+        return response()->json([
+            'recommend' => $recPosts,
+            'new' => $newPosts,
+            'tag' => $tagPosts
+        ]);
     }
+
+    // public function getRecommendPosts()
+    // {
+    //     $recPosts = $this->filPosService->getRecommendPosts();
+
+    //     return response()->json($recPosts);
+    // }
+
+    // public function getLimit10NewPosts()
+    // {
+    //     $newPosts = $this->filPosService->getLimit10NewPosts();
+
+    //     return response()->json($newPosts);
+    // }
 
 }
