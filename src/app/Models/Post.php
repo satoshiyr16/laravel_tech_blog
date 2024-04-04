@@ -14,7 +14,7 @@ class Post extends Model
     {
         return $this->belongsToMany(Tag::class);
     }
-    
+
     public function scopeIsRecommend(mixed $query)
     {
         return $query->where('recommend_flg', 1);
@@ -27,4 +27,10 @@ class Post extends Model
                     ->limit($limit);
     }
 
+    public function scopePostsByTag(mixed $query)
+    {
+        return $query->whereHas('tags', function($query){
+            $query->where('home_display_flg', 1);
+        });
+    }
 }

@@ -1,3 +1,4 @@
+/*========= 波線 ===============*/
 #waveCanvas {
   display: block;
   width: 100%;
@@ -5,8 +6,10 @@
   margin: 0 auto;
 }
 
+/*========= フェードイン ===============*/
+
 .fadeIn {
-  animation: fadeInAnime 1.5s forwards;
+  animation: fadeInAnime 2s forwards;
   opacity: 0;
 
   @keyframes fadeInAnime {
@@ -14,6 +17,8 @@
     to { opacity: 1; }
   }
 }
+
+/*========= 横揺れ ===============*/
 
 .ShakeAnimation{
   animation: shakingAnime 1.5s ease-in-out infinite alternate;
@@ -27,4 +32,23 @@
     50% { transform: rotate(-2deg); }
     100% { transform: rotate(2deg); }
   }
+}
+
+/*========= タイピング ===============*/
+.parent_typing {
+  text-align: center;
+  font-size: 1.5rem;
+  letter-spacing: .5em;
+  word-break: break-all;
+  letter-spacing: .5em;
+}
+
+.text_typing::after {
+  content: "|";
+  animation: typingAnime .6s ease infinite;
+}
+
+@keyframes typingAnime {
+  from {opacity: 0;}
+  to {opacity: 1;}
 }

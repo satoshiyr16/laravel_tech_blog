@@ -14,4 +14,9 @@ class FilterService
     {
       return Post::newPosts(10)->get();
     }
+
+    public function getPostsByTag()
+    {
+      return Post::PostsByTag()->get();
+    }
 }

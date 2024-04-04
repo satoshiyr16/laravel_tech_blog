@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { format } from 'date-fns';
 import BaseLayout from '@components/front/layouts/BaseLayout';
-import WaveEffect from '@components/front/effects/WaveEffect';
+import WaveEffect from '@components/front/animations/WaveEffect';
+import TextTyping from '@components/front/animations/TextTyping';
+import FadeIn from '@components/front/animations/FadeIn';
 import '@scss/front/HomePage.scss';
 
 function HomePage() {
@@ -9,6 +11,7 @@ function HomePage() {
   const imageDir = import.meta.env.VITE_FRONT_IMAGE_DIR;
   const [recPosts, setRecPosts] = useState([]);
   const [newPosts, setNewPosts] = useState([]);
+  const [tagPosts, setTagPosts] = useState([]);
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
@@ -17,6 +20,7 @@ function HomePage() {
       .then(data => {
         setRecPosts(data.recommend);
         setNewPosts(data.new);
+        setTagPosts(data.tag);
       })
       .catch(error => console.error('Error fetching recommended posts:', error));
 
@@ -41,6 +45,11 @@ function HomePage() {
           <h2 className={`title ${isVisible ? '-visible' : ''}`}>
             <span>雑</span>
             <span>魚</span>
+            <span>エ</span>
+            <span>ン</span>
+            <span>ジ</span>
+            <span>ニ</span>
+            <span>ア</span>
             <span>の</span>
             <span>産</span>
             <span>声</span>
@@ -64,7 +73,7 @@ function HomePage() {
         <div className="l-enhancement_section">
           <div className="l-recommend_post_area fadeIn">
             {recPosts.map((rec_post) => (
-              <div className="rec_post_content fadeIn">
+              <div className="rec_post_content fadeIn" key={rec_post.id}>
                 <a href="#"></a>
                 {rec_post.heading_image === null ? (
                   <img className="rec_img" src={`${imageDir}/post.sample.1.png`} alt={rec_post.title} />
@@ -76,12 +85,12 @@ function HomePage() {
             ))}
           </div>
           <div className="l-menu_area">
-            <div className="l-search_area fadeIn"></div>
-            <img className="banner_img shaking ShakeAnimation" src={`${imageDir}/zakoubu_home_icatch.png`} alt="サンプル"/>
+            <FadeIn className="l-search_area"></FadeIn>
+            <img className="banner_img shaking ShakeAnimation" src={`${imageDir}/zakoubu_home_icatch.png`} alt="サンプル" />
           </div>
         </div>
         <div className="l-message_area">
-          <p className="TextTyping">このブログは1から、LaravelとReactで作成しています!!</p>
+          <TextTyping className="text_typing" text="このブログは1から、LaravelとReactで作成しています" />
         </div>
         <div className="l-post_filter_section">
           <div className="l-pos_fil_display">
@@ -89,24 +98,39 @@ function HomePage() {
             <div className="pos_fil_con_area">
               {newPosts.map((new_post) => (
                 <a href="">
-                <div className="pos_fil_content">
-                  {new_post.heading_image === null ? (
-                    <img className="pos_fil_img" src={`${imageDir}/post.sample.1.png`} alt={new_post.title} />
-                  ) : (
-                    <img className="pos_fil_img" src={new_post.heading_image} alt={new_post.title} />
-                  )}
-                  <p className="pos_fil_title">{ new_post.title }</p>
-                  <p className="pos_fil_date">
-                    {format(new Date(new_post.updated_at), 'yyyy/MM/dd')}
-                  </p>
-              </div>
-              </a>
+                  <div className="pos_fil_content">
+                    {new_post.heading_image === null ? (
+                      <img className="pos_fil_img" src={`${imageDir}/post.sample.1.png`} alt={new_post.title} />
+                    ) : (
+                      <img className="pos_fil_img" src={new_post.heading_image} alt={new_post.title} />
+                    )}
+                    <p className="pos_fil_title">{new_post.title}</p>
+                    <p className="pos_fil_date">
+                      {format(new Date(new_post.updated_at), 'yyyy/MM/dd')}
+                    </p>
+                  </div>
+                </a>
               ))}
             </div>
           </div>
           <div className="l-pos_fil_display">
             <p className="pos_fil_area_title">Programing</p>
             <div className="pos_fil_con_area">
+              {tagPosts.map((tag_post) => (
+                <a href="">
+                  <div className="pos_fil_content">
+                    {tag_post.heading_image === null ? (
+                      <img className="pos_fil_img" src={`${imageDir}/post.sample.1.png`} alt={tag_post.title} />
+                    ) : (
+                      <img className="pos_fil_img" src={tag_post.heading_image} alt={tag_post.title} />
+                    )}
+                    <p className="pos_fil_title">{tag_post.title}</p>
+                    <p className="pos_fil_date">
+                      {format(new Date(tag_post.updated_at), 'yyyy/MM/dd')}
+                    </p>
+                  </div>
+                </a>
+              ))}
             </div>
           </div>
         </div>

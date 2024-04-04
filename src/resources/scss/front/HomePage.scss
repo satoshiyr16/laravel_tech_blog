@@ -31,6 +31,11 @@
         &:nth-child(3) { transition-delay: 0.12s; }
         &:nth-child(4) { transition-delay: 0.18s; }
         &:nth-child(5) { transition-delay: 0.24s; }
+        &:nth-child(6) { transition-delay: 0.30s; }
+        &:nth-child(7) { transition-delay: 0.36s; }
+        &:nth-child(8) { transition-delay: 0.42s; }
+        &:nth-child(9) { transition-delay: 0.48s; }
+        &:nth-child(10) { transition-delay: 0.54s; }
       }
 
       &.-visible span {
@@ -146,6 +151,7 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    margin: 20px 0;
   }
 
   .l-post_filter_section {
@@ -241,5 +247,5 @@
       }
     }
   }
-  
+
 }

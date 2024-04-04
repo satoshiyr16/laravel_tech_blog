@@ -19,10 +19,12 @@ class HomeController extends Controller
     {
         $recPosts = $this->filPosService->getRecommendPosts();
         $newPosts = $this->filPosService->getLimit10NewPosts();
+        $tagPosts = $this->filPosService->getPostsByTag();
 
         return response()->json([
             'recommend' => $recPosts,
             'new' => $newPosts,
+            'tag' => $tagPosts
         ]);
     }
 
