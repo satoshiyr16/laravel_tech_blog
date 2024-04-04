@@ -2,7 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-// use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\admin\AuthController;
 use App\Http\Controllers\front\HomeController;
 
 /*
@@ -16,7 +16,8 @@ use App\Http\Controllers\front\HomeController;
 |
 */
 
-// Route::post('/login', [LoginController::class, 'login'])->name('login');
+Route::post('/login', [AuthController::class, 'login'])->name('login');
+Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
