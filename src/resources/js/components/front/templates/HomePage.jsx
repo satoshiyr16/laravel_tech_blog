@@ -4,6 +4,7 @@ import BaseLayout from '@components/front/layouts/BaseLayout';
 import WaveEffect from '@components/front/animations/WaveEffect';
 import TextTyping from '@components/front/animations/TextTyping';
 import FadeIn from '@components/front/animations/FadeIn';
+import { Helmet } from 'react-helmet';
 import '@scss/front/HomePage.scss';
 
 function HomePage() {
@@ -13,6 +14,7 @@ function HomePage() {
   const [newPosts, setNewPosts] = useState([]);
   const [tagPosts, setTagPosts] = useState([]);
   const [isVisible, setIsVisible] = useState(false);
+  const [showSubtitle, setShowSubtitle] = useState(false);
 
   useEffect(() => {
     fetch(`${apiUrl}/posts`)
@@ -25,42 +27,46 @@ function HomePage() {
       .catch(error => console.error('Error fetching recommended posts:', error));
 
     setIsVisible(true);
+    const startAnimeSubtitle = setTimeout(() => {
+      setShowSubtitle(true);
+    }, 500);
+
+    return () => clearTimeout(startAnimeSubtitle);
   }, []);
 
   const [selectedNav, setSelectedNav] = useState('Home');
 
   const navItems = [
     { name: 'Home', url: '/' },
-    { name: 'Content', url: '/#' },
-    { name: 'Search', url: '/#' },
-    { name: 'Profile', url: '/#' },
-    { name: 'Contact', url: '/#' },
+    { name: 'Content', url: '/content' },
+    { name: 'Search', url: '/search' },
+    { name: 'Profile', url: '/profile' },
+    { name: 'Contact', url: '/contact' },
   ];
 
   return (
     <BaseLayout>
+      <Helmet>
+        <title>-ホーム- 雑魚の産声</title>
+      </Helmet>
       <div className="l-home_page_area">
         <WaveEffect />
         <div className="l-title_area">
-          <h2 className={`title ${isVisible ? '-visible' : ''}`}>
+          <h2 className={` title ${isVisible ? '-visible' : ''}`}>
             <span>雑</span>
             <span>魚</span>
-            <span>エ</span>
-            <span>ン</span>
-            <span>ジ</span>
-            <span>ニ</span>
-            <span>ア</span>
             <span>の</span>
             <span>産</span>
             <span>声</span>
           </h2>
+          {showSubtitle && <p className="subtitle font_kurenaido fadeRight">〜 ジュニアエンジニアの駆け出し記録 〜</p>}
         </div>
         <div className="l-nav_area">
           <nav>
             <ul>
-              {navItems.map((item) => (
+              {navItems.map((item,index) => (
                 <li
-                  key={item.name}
+                  key={index}
                   className={selectedNav === item.name ? 'current' : ''}
                   onClick={() => setSelectedNav(item.name)}
                 >
@@ -72,8 +78,8 @@ function HomePage() {
         </div>
         <div className="l-enhancement_section">
           <div className="l-recommend_post_area fadeIn">
-            {recPosts.map((rec_post) => (
-              <div className="rec_post_content fadeIn" key={rec_post.id}>
+            {recPosts.map((rec_post, index) => (
+              <div className="rec_post_content fadeIn" key={index}>
                 <a href="#"></a>
                 {rec_post.heading_image === null ? (
                   <img className="rec_img" src={`${imageDir}/post.sample.1.png`} alt={rec_post.title} />
@@ -96,8 +102,8 @@ function HomePage() {
           <div className="l-pos_fil_display">
             <p className="pos_fil_area_title">NEW</p>
             <div className="pos_fil_con_area">
-              {newPosts.map((new_post) => (
-                <a href="">
+              {newPosts.map((new_post, index) => (
+                <a href="" key={index}>
                   <div className="pos_fil_content">
                     {new_post.heading_image === null ? (
                       <img className="pos_fil_img" src={`${imageDir}/post.sample.1.png`} alt={new_post.title} />
@@ -116,8 +122,8 @@ function HomePage() {
           <div className="l-pos_fil_display">
             <p className="pos_fil_area_title">Programing</p>
             <div className="pos_fil_con_area">
-              {tagPosts.map((tag_post) => (
-                <a href="">
+              {tagPosts.map((tag_post, index) => (
+                <a href="" key={index}>
                   <div className="pos_fil_content">
                     {tag_post.heading_image === null ? (
                       <img className="pos_fil_img" src={`${imageDir}/post.sample.1.png`} alt={tag_post.title} />

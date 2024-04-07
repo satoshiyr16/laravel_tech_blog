@@ -7,7 +7,7 @@
   .l-title_area {
     width: 100%;
     position: absolute;
-    top: 15px;
+    top: 0;
     left: 50%;
     transform: translateX(-50%);
     text-align: center;
@@ -26,21 +26,35 @@
         transition: transform cubic-bezier(0.215, 0.61, 0.355, 1) 0.5s;
         font-family: "Zen Kurenaido", sans-serif;
 
-        &:nth-child(1) { transition-delay: 0s; }
-        &:nth-child(2) { transition-delay: 0.06s; }
-        &:nth-child(3) { transition-delay: 0.12s; }
-        &:nth-child(4) { transition-delay: 0.18s; }
-        &:nth-child(5) { transition-delay: 0.24s; }
-        &:nth-child(6) { transition-delay: 0.30s; }
-        &:nth-child(7) { transition-delay: 0.36s; }
-        &:nth-child(8) { transition-delay: 0.42s; }
-        &:nth-child(9) { transition-delay: 0.48s; }
-        &:nth-child(10) { transition-delay: 0.54s; }
+        &:nth-child(1) {
+          transition-delay: 0s;
+        }
+
+        &:nth-child(2) {
+          transition-delay: 0.06s;
+        }
+
+        &:nth-child(3) {
+          transition-delay: 0.12s;
+        }
+
+        &:nth-child(4) {
+          transition-delay: 0.18s;
+        }
+
+        &:nth-child(5) {
+          transition-delay: 0.24s;
+        }
       }
 
       &.-visible span {
         transform: translate(0, 0);
       }
+    }
+
+    .subtitle {
+      color: #4E4E4E;
+      font-size: 30px;
     }
   }
 
@@ -196,7 +210,8 @@
             margin: 5px;
           }
 
-          .pos_fil_title, .pos_fil_date {
+          .pos_fil_title,
+          .pos_fil_date {
             position: absolute;
             transform: translate(-50%, -50%);
             -webkit-transform: translate(-50%, -50%);
