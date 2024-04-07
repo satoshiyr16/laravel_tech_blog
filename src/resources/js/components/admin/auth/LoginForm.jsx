@@ -31,7 +31,7 @@ function LoginForm() {
 
             console.log('Login success:', response.data.user);
             setUser(response.data.user);
-            navigate('/admin/home');
+            navigate('/admin');
         } catch (error) {
             if (error.response) {
                 setErrorMessage(error.response.data.message);

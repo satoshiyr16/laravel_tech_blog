@@ -1,0 +1,42 @@
+.l-admin_home_area {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+
+.l-content_area {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+  height: 60%;
+  margin: auto;
+  padding: 0 20px;
+}
+
+.con_link {
+  background-color: #FFFFFF;
+  border-radius: 15px;
+  width: 20%;
+  height: 40%;
+  margin: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  box-shadow: 0 0 10px rgba(0, 0, 0, .2);
+}
+
+.con_link:hover {
+  box-shadow: none;
+  cursor: pointer;
+}
+
+.con_link p {
+  margin-top: 20px;
+  font-size: 20px;
+  color: black;
+}
