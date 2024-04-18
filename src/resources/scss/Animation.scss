@@ -1,4 +1,4 @@
-/*========= 波線 ===============*/
+/*========= 波線 ==========*/
 #waveCanvas {
   display: block;
   width: 100%;
@@ -6,21 +6,9 @@
   margin: 0 auto;
 }
 
-/*========= フェードイン ===============*/
+/*========= 横揺れ ==========*/
 
-.fadeIn {
-  animation: fadeInAnime 2s forwards;
-  opacity: 0;
-
-  @keyframes fadeInAnime {
-    from { opacity: 0; }
-    to { opacity: 1; }
-  }
-}
-
-/*========= 横揺れ ===============*/
-
-.ShakeAnimation{
+.ShakeAnimation {
   animation: shakingAnime 1.5s ease-in-out infinite alternate;
 }
 
@@ -29,8 +17,13 @@
   animation: shakingAnime 5s infinite alternate;
 
   @keyframes shakingAnime {
-    50% { transform: rotate(-2deg); }
-    100% { transform: rotate(2deg); }
+    50% {
+      transform: rotate(-2deg);
+    }
+
+    100% {
+      transform: rotate(2deg);
+    }
   }
 }
 
@@ -49,6 +42,161 @@
 }
 
 @keyframes typingAnime {
-  from {opacity: 0;}
-  to {opacity: 1;}
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+/*========= フェード系統 ==========*/
+
+.fadeIn {
+  animation: fadeInAnime 2s forwards;
+  opacity: 0;
+
+  @keyframes fadeInAnime {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+}
+
+.fadeUp {
+  animation: fadeUpAnime 0.5s forwards;
+  opacity: 0;
+
+  @keyframes fadeUpAnime {
+    from {
+      opacity: 0;
+      transform: translateY(100px);
+    }
+
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}
+
+.fadeDown {
+  animation: fadeDownAnime 0.5s forwards;
+  opacity: 0;
+
+  @keyframes fadeDownAnime {
+    from {
+      opacity: 0;
+      transform: translateY(-100px);
+    }
+
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}
+
+.fadeRight {
+  animation: fadeRightAnime 0.5s forwards;
+  opacity: 0;
+
+  @keyframes fadeRightAnime {
+    from {
+      opacity: 0;
+      transform: translateX(100px);
+    }
+
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+}
+
+.fadeLeft {
+  animation: fadeLeftAnime 0.5s forwards;
+  opacity: 0;
+
+  @keyframes fadeLeftAnime {
+    from {
+      opacity: 0;
+      transform: translateX(-100px);
+    }
+
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+}
+
+/*========== 回転 ==========*/
+
+.parent_rotation:hover .rotation {
+  transform: rotateZ(360deg);
+}
+
+.rotation {
+  transition: .5s;
+  transform: rotateZ(0deg);
+}
+
+/*========== スライド ==========*/
+
+.slide_in_right {
+  animation: slideInRight 0.5s forwards;
+
+  @keyframes slideInRight {
+    from {
+      transform: translateX(100%);
+    }
+    to {
+      transform: translateX(0);
+    }
+  }
+}
+
+.slide_out_left {
+  animation: slideOutLeft 0.5s forwards;
+
+  @keyframes slideOutLeft {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(-100%);
+    }
+  }
+}
+
+.slide_in_left {
+  animation: slideInLeft 0.5s forwards;
+
+  @keyframes slideInLeft {
+    from {
+      transform: translateX(-100%);
+    }
+    to {
+      transform: translateX(0);
+    }
+  }
+}
+
+.slide_out_right {
+  animation: slideOutRight 0.5s forwards;
+
+  @keyframes slideOutRight {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(100%);
+    }
+  }
 }

@@ -1,0 +1,31 @@
+.l-add_post_form {
+  overflow-x: hidden;
+  width: 100%;
+  height: 100%;
+}
+
+.form_step {
+  width: 100%;
+  height: 100%;
+  transition: transform 0.5s ease;
+  display: none;
+
+}
+
+.slide_in_right,
+.slide_in_left {
+  display: block;
+}
+
+.slide_in_right.active,
+.slide_in_left.active {
+  transform: translateX(0%);
+}
+
+.slide_out_left {
+  transform: translateX(-100%);
+}
+
+.slide_out_right {
+  transform: translateX(100%);
+}

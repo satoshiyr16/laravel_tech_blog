@@ -1,0 +1,12 @@
+.l-admin_container {
+  height: 100%;
+  width: 100%;
+  display: flex;
+
+  .l-page_content_area {
+    height: 100%;
+    width: 85%;
+    background-color: #f1f1f1;
+    z-index: 500;
+  }
+}
