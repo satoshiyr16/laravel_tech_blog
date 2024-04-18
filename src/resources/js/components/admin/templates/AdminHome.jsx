@@ -1,4 +1,5 @@
 import React from 'react';
+import { Helmet } from 'react-helmet';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
     faEnvelopeOpenText,
@@ -15,7 +16,6 @@ import BaseLayout from '@components/admin/layouts/BaseLayout';
 import LogoutButton from '@components/admin/auth/LogoutButton';
 
 const AdminHomePage = () => {
-    // アイコンオブジェクトをキーに直接マッピング
     const homePageIcons = {
         'fa-envelope-open-text': faEnvelopeOpenText,
         'fa-file': faFile,
@@ -29,7 +29,7 @@ const AdminHomePage = () => {
 
     const navItems = [
         { path: 'admin', label: '投稿一覧', icon: 'fa-envelope-open-text', className:'i_content' },
-        { path: 'admin', label: '新規投稿', icon: 'fa-file', className:'i_post' },
+        { path: 'admin/addPost', label: '新規投稿', icon: 'fa-file', className:'i_post' },
         { path: 'admin', label: '検索', icon: 'fa-magnifying-glass', className:'i_search' },
         { path: 'admin', label: 'データ', icon: 'fa-chart-simple', className:'i_graph' },
         { path: 'admin', label: 'おすすめ記事設定', icon: 'fa-star', className:'i_favorite' },
@@ -40,6 +40,9 @@ const AdminHomePage = () => {
 
     return (
         <BaseLayout>
+            <Helmet>
+                <title>-管理ホーム- 雑魚の産声</title>
+            </Helmet>
             <div className="l-admin_home_area">
                 <div className="l-content_area">
                     {navItems.map((item, index) => {
