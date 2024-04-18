@@ -18,7 +18,7 @@
       margin: auto;
       overflow: hidden;
       color: #4E4E4E;
-      font-size: 90px;
+      font-size: 5.625rem;
 
       span {
         display: block;
@@ -49,6 +49,7 @@
 
       &.-visible span {
         transform: translate(0, 0);
+        font-size: 5.625rem;
       }
     }
 
@@ -85,6 +86,7 @@
             text-decoration: none;
             color: #555;
             padding-bottom: 5px;
+            font-size: 1.125rem;
 
             &:hover {
               color: #D35400;
@@ -132,6 +134,7 @@
         .rec_title {
           text-decoration: none;
           color: #4E4E4E;
+          font-size: 1.725rem;
         }
       }
     }
@@ -166,6 +169,10 @@
     align-items: center;
     flex-direction: column;
     margin: 20px 0;
+
+    .parent_typing span {
+      font-size: 1.5rem;
+    }
   }
 
   .l-post_filter_section {
@@ -219,6 +226,7 @@
             &.pos_fil_title {
               top: 50%;
               left: 50%;
+              font-size: 1.125rem;
             }
 
             &.pos_fil_date {

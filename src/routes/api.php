@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\admin\AuthController;
+use App\Http\Controllers\admin\PostController;
 use App\Http\Controllers\front\HomeController;
 
 /*
@@ -18,6 +19,8 @@ use App\Http\Controllers\front\HomeController;
 
 Route::post('/login', [AuthController::class, 'login'])->name('login');
 Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
+Route::post('/posts', [PostController::class, 'store'])->name('store');
+Route::post('/image/upload', [PostController::class, 'imageUpload'])->name('imageUpload');
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });

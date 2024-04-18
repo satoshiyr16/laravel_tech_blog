@@ -4,6 +4,7 @@ import '@scss/Reset.scss';
 import '@scss/Animation.scss';
 import '@scss/Icon.scss';
 import '@scss/admin/layouts/Layout.scss';
+import '@scss/admin/uiComponents/Button.scss';
 
 const BaseLayout = ({ children }) => {
   return (

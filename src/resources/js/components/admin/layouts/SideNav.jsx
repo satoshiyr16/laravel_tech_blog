@@ -22,7 +22,7 @@ const SideNav = ({ userName }) => {
 
   const navLinks = [
     { path: 'admin', label: 'ホーム', icon: 'fa-house' },
-    { path: 'admin', label: '投稿一覧', icon: 'fa-envelope-open-text' },
+    { path: 'admin/addPost', label: '投稿一覧', icon: 'fa-envelope-open-text' },
     { path: 'admin', label: '新規投稿', icon: 'fa-file' },
     { path: 'admin', label: '検索', icon: 'fa-magnifying-glass' },
     { path: 'admin', label: 'データ', icon: 'fa-chart-simple' },
@@ -34,7 +34,7 @@ const SideNav = ({ userName }) => {
 
   return (
     <div className="l-admin_nav_area">
-      <Link to="">
+      <Link to={`${url}/admin`}>
         <div className="nav_title">
           <h2>管理画面</h2>
           <p>~ 雑魚の産声 ~</p>
@@ -43,7 +43,7 @@ const SideNav = ({ userName }) => {
       <div className="user_info">
         <div className="login_user">
           <FontAwesomeIcon icon={icons['fa-circle-user']} className="i_user fa-4x" />
-          <p>{userName ? `${userName} さん、こんにちは！` : 'テスト さん、こんにちは！'}</p>
+          <p>{userName ? `${userName} さん` : 'テスト さん'}</p>
         </div>
       </div>
       <nav className="l-nav">
